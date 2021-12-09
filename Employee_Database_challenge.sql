@@ -8,3 +8,15 @@ INNER JOIN titles AS t
 -- Filter BirthDate
 WHERE (e.birth_date BETWEEN ('1951-01-01') AND ('1955-12-31'))
 ORDER BY e.emp_no;
+
+
+-- Challenge Started Code 
+-- Use Dictinct with Orderby to remove duplicate rows
+SELECT DISTINCT ON (RT.emp_no) RT.emp_no,
+RT.first_name,
+RT.last_name,
+RT.title
+
+INTO unique_titles
+FROM retirement_titles AS RT
+ORDER BY RT.emp_no, RT.to_date DESC;
